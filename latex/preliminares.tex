@@ -1,0 +1,73 @@
+\chapter*{Datos generales}
+\addcontentsline{toc}{chapter}{Datos generales}
+
+\begin{enumerate}[leftmargin=1.4em]
+  \item \textbf{Título de la tesis:} Alineación entre contratos OpenAPI bancarios y modelos de referencia BIAN mediante análisis estructural y similitud semántica.
+  \item \textbf{Autores:} Alex Mancilla Antay; Dennis Jack Paitan Cano. Grupo 10.
+  \item \textbf{Asesor:} Por designar.
+  \item \textbf{Área:} Inteligencia artificial. Alineación de contratos OpenAPI bancarios con Service Domains BIAN.\\
+        Unidad de Posgrado: Facultad de Ingeniería de Sistemas y Computación.\\
+        Programa: Maestría en Inteligencia Artificial.
+  \item \textbf{Lugar:} Universidad Nacional de Ingeniería, Lima, Perú.
+  \item \textbf{Duración estimada:} 5 meses (septiembre 2026 -- enero 2027).
+  \item \textbf{Estado de este archivo:} borrador 1, 21 de noviembre de 2026. Los capítulos que todavía no están redactados llevan el título y la marca de pendiente.
+\end{enumerate}
+
+\chapter*{Dedicatoria}
+\addcontentsline{toc}{chapter}{Dedicatoria}
+\pendiente
+
+\chapter*{Agradecimientos}
+\addcontentsline{toc}{chapter}{Agradecimientos}
+\pendiente
+
+\chapter*{Copia de documentos}
+\addcontentsline{toc}{chapter}{Copia de documentos}
+\pendiente
+
+\tableofcontents
+
+\listoftables
+\addcontentsline{toc}{chapter}{Lista de tablas}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{Lista de ilustraciones}
+
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+
+% REESCRIBIR A MANO POR ALEX Y JACK
+% Borrador, no cerrado. En el plan, esta página salió casi entera en el reporte del 30 %.
+% Léanlo en voz alta y cambien cualquier frase que no dirían en la sustentación.
+
+Queremos saber, antes de integrar, si el YAML de una API bancaria cuenta el mismo negocio que el Service Domain BIAN con el que se lo empareja. Hoy eso se mira a ojo, o no se mira.
+
+En la mesa abrimos el archivo y el dominio. Paths, el \texttt{operationId}, los \texttt{\$ref}. Si el contrato dice \texttt{paymentRequest} y el dominio dice \texttt{PaymentOrder}, no queda un número. Sobre esa instancia calculamos S, E y C, y los tres entran en el AlignmentScore.
+
+El 6 de noviembre de 2026 el parser firmó 296 de 296 YAML: 38 de Open Finance Brasil y 258 de BIAN v14. En I1 a I6 el S léxico quedó entre 0,00 y 0,03. MiniLM, sin ajuste nuestro, mueve cinco de esas siete de Nula a Baja. I4 se queda en Nula. I6, enrollments contra Payment Order Initiation, se queda en cero. Reino Unido, Berlin Group, STET y el resto de la lista pública no tienen score en este borrador.
+
+Lo que no entra ---banco emisor, 38$\times$258, el F1--- está en la sección de alcances.
+
+\vspace{0.4cm}
+\noindent\textbf{Palabras clave:} OpenAPI; BIAN; AlignmentScore; schema matching; API bancaria; alineación estructural.
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+% REESCRIBIR A MANO POR ALEX Y JACK
+% Draft, not closed. Do not treat this as a translation of the Spanish summary.
+% Read it aloud and replace any sentence you would not say in the defense.
+
+On 6 November 2026 the parser signed 38 Open Finance Brasil YAML files and 258 BIAN v14 domains, 296 of 296. Lexical S on I1--I6 sits between 0.00 and 0.03. The score we report is the cosine of paraphrase-multilingual-MiniLM-L12-v2, pretrained, not fine-tuned. I1, I2, I3a, I3b and I5 move from Nula to Baja. I4 stays Nula, at 0.35. I6, enrollments against Payment Order Initiation, stays at 0. UK Read/Write, the Berlin Group, STET, PolishAPI, the Czech standard, Australia, Payments NZ, Bahrain and the Nebras YAML are in the corpus. They have no score here. An issuing-bank file, the full 38$\times$258 cross-product and an F1 are out.
+
+\vspace{0.4cm}
+\noindent\textbf{Keywords:} OpenAPI; BIAN; AlignmentScore; schema matching; banking API; structural alignment.
+
+\chapter*{Introducción}
+\addcontentsline{toc}{chapter}{Introducción}
+
+El cruce entre el contrato que publica el banco y el Service Domain que usa el arquitecto se hace a ojo, o no se hace. El archivo trae paths, el verbo, el operationId y los \$ref. El dominio trae behaviors y objetos de negocio. Si uno dice \texttt{paymentRequest} y el otro \texttt{PaymentOrder}, no queda un número en el expediente.
+
+Ese número es el AlignmentScore. Sale de tres piezas: parecido de significado (S), correspondencia de la jerarquía REST (E) y cobertura de los conceptos del dominio (C). El objeto sigue siendo el contrato OpenAPI bancario. Open Finance Brasil es la parte del corpus que ya corrimos. Reino Unido, Berlin Group, STET, PolishAPI, Chequia, Australia, Nueva Zelanda, Baréin y Emiratos entran al mismo procedimiento y, en este borrador, todavía no tienen score.
+
+Los capítulos I y II fijan el objeto y de dónde sale cada score. El III trae I1 a I6. El IV no estira esas siete instancias al resto del corpus.

@@ -10,11 +10,11 @@ Repositorio de la tesis. Aquí va el documento y el artefacto de la tesis, no el
 
 El objeto sigue siendo el contrato OpenAPI bancario. Open Finance Brasil es la muestra del piloto, no una redefinición del objeto.
 
-## Entregable de hoy
+## Borrador 1
 
-Borrador 1, semana 10 (resultados preliminares, bitácora y cómo repetir la corrida):
+La tesis, con carátula y la estructura de la Guía N.º 2. Los capítulos I a IV están redactados a partir del plan. El corpus son las APIs públicas de `fuentes/apis-bancarias-publicas.md`. Los scores son solo los del piloto OFB.
 
-- `borrador/Borrador_Semana10.md`
-- `borrador/Borrador_Semana10_Grupo10.pdf`
+- Fuente: `latex/`
+- PDF: `borrador/Borrador_Tesis_Grupo10.pdf`
 
-Los números salen del piloto, no se recalcularon en este repositorio.
+Los números salen del piloto, no se recalcularon en este repositorio. La nota corta de la semana 10 sigue en `borrador/Borrador_Semana10.md`.

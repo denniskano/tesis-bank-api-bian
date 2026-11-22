@@ -1,0 +1,43 @@
+\appendix
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\chapter{Bitácora de la corrida}
+\label{anexo:bitacora}
+
+\begin{table}[ht]
+  \centering
+  \caption{Bitácora}
+  \label{tab:bitacora}
+  \small
+  \begin{tabular}{@{}p{0.18\textwidth}p{0.36\textwidth}p{0.36\textwidth}@{}}
+    \toprule
+    Fecha & Qué pasó & Dónde queda \\
+    \midrule
+    6 nov 2026 & Parser, firma 296/296, matching v0 y MiniLM sobre I1--I6. & \texttt{oe1\_firma.json}. El commit de esa corrida, cuando el piloto aún estaba en el repositorio del curso, es \texttt{ec2b2ad}. \\
+    21 nov 2026 & El piloto pasa a su repositorio. El README queda con la arquitectura y los modelos. Los scores no se recalcularon. & \url{https://github.com/denniskano/piloto-bank-api-bian}, commit \texttt{12c1c04}. \\
+    21 nov 2026 & Este borrador. & \url{https://github.com/denniskano/tesis-bank-api-bian} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Dificultades que ya vimos: el techo léxico portugués--inglés; el parser que no aplana \texttt{allOf}; I1/I2 e I3a/I3b que no son independientes; los umbrales sin etiquetas; el asesor todavía sin designar.
+
+\chapter{Cómo repetir la corrida}
+\label{anexo:repro}
+
+Otra persona clona el piloto, no este repositorio.
+
+\begin{lstlisting}
+git clone https://github.com/denniskano/piloto-bank-api-bian.git
+cd piloto-bank-api-bian
+git checkout 12c1c04
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+python -m ofb_bian.procesar_openapi
+python -m ofb_bian.matching_v0
+python -m ofb_bian.matching_s1
+\end{lstlisting}
+
+Python 3.11 o superior. En \path{pyproject.toml} el mínimo es PyYAML 6, sentence-transformers 3 y numpy 1.26. La primera vez, \path{matching_s1} descarga MiniLM desde Hugging Face. El resultado comparable es la tabla de \path{results/matching_s1/COMPARACION_V0_V1.md}. El orden no se salta: \path{matching_v0} lee los CSV del parser, y esos CSV no están en GitHub.
+
+\input{anexos-plan}

@@ -1,0 +1,243 @@
+\chapter{Cadena de búsqueda y criterios de selección}
+\label{anexo:busqueda}
+
+\section{Bases, período e idioma}
+
+IEEE Xplore, ACM Digital Library, Scopus / ScienceDirect, y Google Scholar como complemento. El período es 2005--2026, con énfasis en 2015--2026 para OpenAPI 3.x y el Service Landscape de BIAN. El idioma de búsqueda es el inglés. Se dejó entrar el español cuando el mapeo es de OpenAPI, como Casas et al.\ \cite{Casas2021}.
+
+\section{Cadenas}
+
+\begin{description}
+  \item[OpenAPI.] {\small\raggedright \texttt{("OpenAPI" OR "Swagger" OR "OpenAPI Specification")} \texttt{AND ("REST" OR "RESTful") AND ("API" OR "web service")}\par}
+  \item[Alineación.] {\small\raggedright \texttt{("schema matching" OR "ontology alignment"} \texttt{OR "semantic similarity" OR "structural alignment")} \texttt{AND ("OpenAPI" OR "API specification")}\par}
+  \item[Banca.] {\small\raggedright \texttt{("BIAN" OR "banking architecture"} \texttt{OR "financial services" OR "open banking")} \texttt{AND ("API" OR "service domain" OR "enterprise architecture")}\par}
+\end{description}
+
+\section{Inclusión y exclusión}
+
+Entra un survey, un mapeo o una revisión con método explícito, sobre OpenAPI, matching, ontologías, arquitectura bancaria o calidad de APIs REST, con el PDF disponible, y con algo que decir sobre el vacío OpenAPI--BIAN o sobre S, E o C.
+
+No entra un poster ni un preprint sin revisión, salvo como contexto. No entra un trabajo que solo mide latencia de un gateway. Si el mismo estudio está en conferencia y en journal, nos quedamos con el más completo. No entra un paper cuya técnica no se puede atar al contrato OpenAPI bancario.
+
+La tabla del anexo siguiente tiene los 20 registros de los ejes E1 a E6. Los seis de 2022--2024 (He, Schneider, Hertling, Lu, Kotstein, Oberle) van en E3 y en E4.
+
+\chapter{Matriz de papers}
+\label{anexo:papers}
+
+\begin{longtable}{@{}p{0.08\textwidth}p{0.08\textwidth}p{0.22\textwidth}p{0.16\textwidth}p{0.34\textwidth}@{}}
+\caption{Veinte papers del estado del arte} \label{tab:anexo-b} \\
+\toprule
+ID & Eje & Cita & Tipo & Título \\
+\midrule
+\endfirsthead
+\multicolumn{5}{l}{\textit{(continúa)}} \\
+\midrule
+ID & Eje & Cita & Tipo & Título \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{(continúa)}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+E1-01 & E1 & Casas et al., 2021 & mapeo & Uses and applications of the OpenAPI/Swagger specification \\
+E1-02 & E1 & Mainas et al., 2023 & artículo & Annotated OpenAPI descriptions and ontology for REST services \\
+E1-03 & E1 & Santos y Casas, 2025 & artículo & A catalog of API Gateway metrics and its quantitative evaluation \\
+E2-01 & E2 & Shvaiko y Euzenat, 2005 & survey & A survey of schema-based matching approaches \\
+E3-01 & E3 & El Bayadh et al., 2015 & survey & Ontology-alignment techniques: survey and analysis \\
+E3-02 & E3 & Chandrasekaran y Mago, 2022 & survey & Evolution of semantic similarity: a survey \\
+E3-03 & E3 & Santos Sousa et al., 2026 & survey & Survey on embedding methods applied to ontology matching \\
+E3-04 & E3 & He et al., 2022 & artículo & BERTMap: a BERT-based ontology alignment system \\
+E3-05 & E3 & Schneider et al., 2023 & artículo & NLFOA: natural language focused ontology alignment \\
+E3-06 & E3 & Hertling y Paulheim, 2023 & artículo & OLaLa: ontology matching with large language models \\
+E4-01 & E4 & Schmidt y Thiry, 2020 & revisión & Microservices identification strategies \\
+E4-02 & E4 & Lu et al., 2024 & artículo & Comparing the similarity of OpenAPI-based microservices \\
+E4-03 & E4 & Kotstein y Decker, 2024 & artículo & RESTBERTa: a transformer-based question answering approach for semantic search in Web API documentation \\
+E4-04 & E4 & Oberle y Bauernhansl, 2024 & artículo & Leveraging OpenAPI for microservice decomposition \\
+E5-01 & E5 & Ehsan et al., 2022 & survey & RESTful API testing methodologies \\
+E5-02 & E5 & Golmohammadi et al., 2024 & survey & Testing RESTful APIs: a survey \\
+E5-03 & E5 & Otieno y Araka, 2026 & revisión & RESTful API testing using machine learning techniques \\
+E5-04 & E5 & Tanveer et al., 2025 & survey & Towards secure APIs \\
+E5-05 & E5 & Vitorino et al., 2025 & revisión & Constrained adversarial learning for automated software testing \\
+E6-01 & E6 & Mahanra Rao et al., 2025 & revisión & BERT-based approaches for web service selection \\
+\end{longtable}
+
+E1 es OpenAPI como estándar. E2, matching estructural. E3, similitud y ontologías. E4, microservicios e interfaces. E5, testing, y queda al borde. E6, selección de servicios, y también queda al borde.
+
+\chapter{Matriz de consistencia}
+\label{anexo:consistencia}
+
+La matriz del grupo tiene diez columnas. En el borrador anterior se había quedado en cuatro. Aquí va completa, en horizontal, con las cinco fases. La Fase 1 fija el diseño. El prototipo y las siete instancias entran. La corrida de todo el corpus contra los 258 dominios no entra.
+
+La situación real (TSB, los nueve bancos, los YAML públicos) no es una fila. La situación subyacente son las dos jerarquías, el contrato y el Service Domain.
+
+El problema tecnológico: no existe un método reproducible que cuantifique en qué medida un contrato OpenAPI bancario se alinea con un Service Domain BIAN y bajo qué tipologías se desalinea.
+
+El objetivo general: diseñar el modelo que calcula S, E, C y el AlignmentScore. Esta tesis entrega el modelo, el prototipo y el piloto de siete instancias. El objetivo de más arriba, el del sector, es que un equipo pueda leer esa coherencia antes del despliegue. No lo implementamos en un banco.
+
+\begin{landscape}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.15cm}>{\raggedright\arraybackslash}p{2.45cm}>{\raggedright\arraybackslash}p{2.45cm}>{\raggedright\arraybackslash}p{2.45cm}>{\raggedright\arraybackslash}p{1.7cm}>{\raggedright\arraybackslash}p{2.55cm}>{\raggedright\arraybackslash}p{2.15cm}>{\raggedright\arraybackslash}p{2.45cm}>{\raggedright\arraybackslash}p{2.55cm}>{\raggedright\arraybackslash}p{2.55cm}@{}}
+\caption{Matriz de consistencia} \label{tab:consistencia} \\
+\toprule
+Fase & Problema & Objetivo & Producto & Factor & Estados del factor & Ratio & Hipótesis & Indicadores & Control \\
+\midrule
+\endfirsthead
+\multicolumn{10}{l}{\textit{(continúa)}} \\
+\midrule
+Fase & Problema & Objetivo & Producto & Factor & Estados del factor & Ratio & Hipótesis & Indicadores & Control \\
+\midrule
+\endhead
+\midrule
+\multicolumn{10}{r}{\textit{(continúa)}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+1. Diseño &
+No hay un método reproducible que cuantifique la alineación de un contrato OpenAPI bancario con un Service Domain, ni las tipologías. No es el síntoma del sector. &
+Definir entradas, S, E, C, la fórmula y los niveles. &
+El modelo: adquirir, normalizar, calcular S, E y C, y el AlignmentScore. El prototipo lo corre. &
+No aplica &
+No aplica &
+Si el diseño alcanza &
+Un modelo por componentes S, E y C deja un score repetible. &
+Etapas definidas, traza de la entrada a la salida, cortes de nivel escritos. &
+OpenAPI bancario contra Service Domains BIAN. El prototipo ejecuta el procedimiento. Fuera: el despliegue y la corrida 38$\times$258. Cortes 0,80 / 0,60 / 0,40, convención hasta que haya etiquetas. \\
+2. OE1 &
+El contrato y el dominio no se comparan directo: uno es REST y el otro es negocio (P1, P2). &
+Pasar los dos a una tabla común. &
+Filas versionadas: paths, operaciones, schemas, behaviors y business objects. &
+Representación &
+Elegida: tabla (operación, ruta, verbo, esquema, texto). Descartados: grafo y RDF. &
+Completitud de la extracción &
+Esa tabla habilita S, E y C. &
+Elementos extraídos frente a los declarados en el YAML. Integridad de la ruta, el verbo y el texto. &
+38 YAML de Open Finance Brasil y 258 dominios BIAN v14. El parser firma 296/296. El score no es ese producto. Es I1 a I6. I1 e I2 comparten el YAML de accounts. I3a e I3b comparten opendata-accounts. \\
+3. OE2, P1 &
+No se conocen las correspondencias de jerarquía entre el contrato y el Service Domain. &
+Calcular E. &
+Pares estructurales y E en $[0,1]$. &
+Matching &
+Greedy uno a uno. Entra si el Jaccard del nombre llega a 0,40, o el último tramo de la ruta toca el recurso, o el verbo es el mismo y el Jaccard llega a 0,25. $e_{\mathrm{pair}} = 0{,}40$ nombre $+ 0{,}25$ ruta $+ 0{,}20$ verbo $+ 0{,}15$ profundidad. El verbo suma 1 si es idéntico y 0,5 si los dos son de lectura o los dos de escritura. Sin par, la operación vale 0. &
+E &
+El schema matching deja un E de la correspondencia REST--dominio. &
+Media de $e_{\mathrm{pair}}$ sobre las operaciones del contrato. La que no tiene par entra como 0. Número de pares del greedy. &
+Los mismos archivos de la fase 2. Esos pares quedan congelados para S. I6 es el control negativo: enrollments no comparte recurso con Payment Order Initiation. \\
+4. OE3, P2 &
+No se sabe el parecido entre los términos del dominio y los nombres del contrato. &
+Calcular S. &
+S en $[0,1]$, léxico y MiniLM, por separado. &
+Similitud &
+Sobre los pares que congeló E. v0: (Jaccard + coseno TF-IDF) / 2. v1: coseno de paraphrase-multilingual-MiniLM-L12-v2, ya entrenado, sin fine-tuning. El par no lo arma un modelo generativo. E y C no se recalculan. &
+S &
+S separa un concepto alineado de uno que no lo está. &
+S v0 y S v1, cada uno en $[0,1]$. Los cortes de coseno 0,45 / 0,55 / 0,65 no recortan el S oficial. &
+Los mismos pares de la fase 3. OFB en portugués, BIAN en inglés. Sin ajuste y sin GPU obligatoria. \\
+5. OE4, P4 &
+No hay un indicador que junte S, E y la cobertura, ni una escala para leerlo. P3, las tipologías, se lee en los pares. No es un quinto score. &
+Calcular C, el AlignmentScore y el nivel. La sensibilidad de los pesos ya está. Precision, recall, F1 y kappa esperan etiquetas. &
+C, el score, el nivel (Alta $\geq 0{,}80$, Media 0,60--0,79, Baja 0,40--0,59, Nula menor que 0,40). F1 y kappa cuando el etiquetado cierre. &
+Pesos $\alpha$, $\beta$, $\gamma$ &
+Oficial: los tres valen $1/3$. Sensibilidad: $(0{,}50,\ 0{,}30,\ 0{,}20)$ y $(0{,}20,\ 0{,}50,\ 0{,}30)$. &
+AlignmentScore &
+La media de S, E y C se puede clasificar por nivel. &
+C es tags CR/BQ con par sobre tags del dominio. Score $(S+E+C)/3$. Un verdadero positivo es un par del greedy que confirmamos. Un falso positivo, un par que rechazamos. Un falso negativo, un par nuestro que el greedy no armó. &
+Los pesos oficiales son los del número que se reporta. Etiquetamos por recurso de negocio, no por el verbo. El asesor adjudica el desacuerdo. Sigue por designar. I6 en cero no es nuestra etiqueta. \\
+\end{longtable}
+\end{landscape}
+
+\begin{table}[ht]
+  \centering
+  \caption{Trazabilidad. Las citas de capítulo son las de esta tesis, no las del plan}
+  \label{tab:trazabilidad}
+  \footnotesize
+  \begin{tabular}{@{}p{0.28\textwidth}p{0.42\textwidth}p{0.22\textwidth}@{}}
+    \toprule
+    Elemento & Qué es & Dónde \\
+    \midrule
+    Situación real & TSB, la CMA, los YAML públicos & \S 1.1 \\
+    Problema abstracto & Dos jerarquías, contrato y dominio & \S 1.2 y \S 1.3 \\
+    Problema tecnológico & No hay un método que deje el número & \S 1.3 \\
+    Objetivo superior & Leerlo antes del despliegue. No lo hacemos en un banco & \S 1.4 \\
+    Objetivo general & S, E, C y el AlignmentScore & \S 1.4 \\
+    OE1 a OE4 & Tabla, E, S, y C con el nivel & Fases 2 a 5 \\
+    P1 & Correspondencia estructural, la responde OE2 & \S 1.3 \\
+    P2 & Parecido de significado, lo responde OE3 & \S 1.3 \\
+    P3 & Tipologías. Se leen en los pares. No hay un cuarto score & \S 1.3 \\
+    P4 & El indicador por instancia & \S 1.4 y fase 5 \\
+    Prototipo & Parser, greedy y MiniLM, sobre I1--I6 & Capítulo III \\
+    Muestra & Siete instancias. Fuera: 38$\times$258 y el banco emisor & \S 1.8 y capítulo III \\
+    Etiquetas & Kappa, precision, recall y F1. Sin número todavía & \S 1.5 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\chapter{Operación de variables}
+\label{anexo:operacion}
+
+\begin{longtable}{@{}p{0.18\textwidth}p{0.22\textwidth}p{0.14\textwidth}p{0.22\textwidth}p{0.14\textwidth}@{}}
+\caption{Cómo se mide cada ratio} \label{tab:operacion} \\
+\toprule
+Ratio & Definición & Escala & Cálculo & Control \\
+\midrule
+\endfirsthead
+\multicolumn{5}{l}{\textit{(continúa)}} \\
+\midrule
+Ratio & Definición & Escala & Cálculo & Control \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{(continúa)}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+E & Correspondencia estructural & $[0,1]$ & Media de $e_{\mathrm{pair}}$ sobre todas las operaciones del contrato. Sin par, entra 0 & Pesos 0,40 / 0,25 / 0,20 / 0,15 \\
+S & Parecido de los textos emparejados & $[0,1]$ & v0: media de Jaccard y coseno TF-IDF. v1: coseno MiniLM. Solo los pares & Mismos pares. Sin fine-tuning \\
+C & Tags CR/BQ del dominio con al menos un par & $[0,1]$ & Tags con par / tags del dominio & No se copian tags al YAML de origen \\
+AlignmentScore & Indicador de la instancia & $[0,1]$ & $(S+E+C)/3$ & Los tres pesos suman 1 \\
+Nivel & Lectura del score & 4 clases & 0,80 / 0,60 / 0,40 & Convención, hasta que haya F1 \\
+Extracción & Completitud del parser & ratio & Extraídos / declarados en el YAML & Firma 296/296 en el piloto \\
+\end{longtable}
+
+Los factores ya elegidos: tabla (no grafo ni RDF); greedy uno a uno; Jaccard con TF-IDF y MiniLM; pesos iguales en el número oficial, y dos juegos de sensibilidad que no lo reemplazan.
+
+\chapter{Diseño factorial}
+\label{anexo:factorial}
+
+El diseño factorial completo no aplica. El producto es el procedimiento y los scores, no un experimento que cruce todas las alternativas. Los factores ya tienen una configuración (anexo anterior). Lo que sí entra es la sensibilidad de los tres pesos y, cuando haya etiquetas, el F1 del emparejamiento.
+
+\chapter{Administración del trabajo}
+\label{anexo:admin}
+
+El plazo de los datos generales es septiembre 2026 a enero 2027. El asesor sigue por designar: la última fila le reserva la revisión y no le pone un nombre.
+
+\begin{table}[ht]
+  \centering
+  \caption{Cronograma}
+  \label{tab:cronograma}
+  \small
+  \begin{tabular}{@{}clll@{}}
+    \toprule
+    Fase & Actividad & Cuándo & Quién \\
+    \midrule
+    0 & Bibliografía, cadenas de búsqueda y brecha & Sep 2026 & Alex \\
+    0 & YAML del piloto y parser de los 296 contratos & Sep--oct 2026 & Jack \\
+    1 & Planteamiento, objeto, justificación y clasificación & Sep--oct 2026 & Alex \\
+    2 & Matching v0 de I1--I6 (E, S léxico, C) & Oct--nov 2026 & Jack \\
+    3 & S con MiniLM sobre los pares congelados & Nov 2026 & Jack \\
+    3 & Lectura de I1--I6, control I6 y figuras & Nov 2026 & Alex \\
+    4 & Etiquetado independiente, por recurso de negocio & Dic 2026 & Ambos \\
+    5 & Rúbrica, sensibilidad de pesos y F1 & Dic 2026--ene 2027 & Ambos \\
+    6 & Cierre del borrador y revisión con el asesor & Ene 2027 & Ambos \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+El presupuesto de licencias y de despliegue es cero soles: \LaTeX{}, Python, Zotero y Git. El acceso a IEEE y ACM sale de la matrícula. La impresión, si hace falta, no pasa de 30 soles y la pagan los dos. No hay financiamiento externo. El piloto corre en los equipos de los dos.
+
+Alex lleva los capítulos I y II, la cadena de búsqueda, la brecha y la lectura de los niveles. Jack lleva el prototipo, los capítulos III y IV, y los anexos de operación. El corpus público, las figuras y el etiquetado son de los dos. Cada uno revisa el bloque del otro antes de cerrar el borrador.
+
+El riesgo que ya vimos, y que el cronograma deja abierto, es el etiquetado: sin asesor no hay quien adjudique el desacuerdo, y sin ese cierre no hay kappa ni F1.

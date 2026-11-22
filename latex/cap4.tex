@@ -1,0 +1,22 @@
+\chapter{Conclusiones y recomendaciones}
+
+\section{Conclusiones}
+
+\begin{enumerate}
+  \item El objeto es el contrato OpenAPI bancario. BIAN v14 es la referencia. El corpus de la tesis son los estándares que el 21 de noviembre se podían bajar sin cuenta: Open Finance Brasil, Reino Unido, Berlin Group (XS2A y openFinance), STET, PolishAPI, Chequia, Australia, Nueva Zelanda, Baréin y los YAML de Emiratos en Nebras. FDX y los PDF de otros países no entran al parser.
+  \item De ese corpus, solo Open Finance Brasil está parseado. El parser firmó 296 de 296 YAML (38 del piloto y 258 dominios). No aplana \texttt{allOf}.
+  \item En I1 a I6 el S léxico no pasa de 0,03. El texto del contrato está en portugués y el del dominio en inglés.
+  \item Con MiniLM, sin fine-tuning, cinco instancias pasan de Nula a Baja. I4 se queda en Nula. I6 se queda en cero, que es lo que se esperaba del control negativo.
+  \item Nadie llega a Alta ni a Media. Los cortes 0,80 / 0,60 / 0,40 siguen siendo una convención. No hay kappa ni F1.
+  \item I1/I2 e I3a/I3b comparten YAML. No son siete contratos distintos. Esas siete instancias no autorizan a hablar por el resto del corpus.
+\end{enumerate}
+
+\section{Recomendaciones}
+
+\begin{enumerate}
+  \item Correr el mismo parser y el mismo matching sobre los estándares en inglés del corpus, con la versión fijada (en el Reino Unido, el tag \texttt{v4.0.1}, no \texttt{master}). El PDF del Berlin Group puede ir por delante del YAML. El número oficial sigue siendo el del archivo OpenAPI.
+  \item No tratar como cerrada la licencia de Payments NZ ni la de Baréin. No tratar el repositorio de Nebras como el GitHub de CBUAE. No puntuar el YAML de ReBIT como si fuera el contrato de cuentas de un banco. VÚB, K\&H y los cajeros de la CNBV quedan en el inventario.
+  \item Cerrar nuestro etiquetado, por separado y por recurso de negocio, y recién ahí calcular kappa y F1.
+  \item Designar asesor. Hoy el desacuerdo del etiquetado no tiene quién lo adjudique.
+  \item No correr todo el corpus contra los 258 dominios, ni meter el YAML de un banco emisor, hasta fijar esa referencia.
+\end{enumerate}

@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper,openany]{report}
+
+\usepackage[spanish,es-tabla,shorthands=off]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\graphicspath{{figuras/}}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{xurl}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  pdftitle={Borrador 1. Alineación entre contratos OpenAPI bancarios y modelos de referencia BIAN},
+  pdfauthor={Alex Mancilla Antay y Dennis Jack Paitan Cano}
+}
+
+\renewcommand{\contentsname}{Índice de contenidos}
+\renewcommand{\listtablename}{Lista de tablas}
+\renewcommand{\listfigurename}{Lista de ilustraciones}
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+
+\newcommand{\pendiente}{%
+  \par\vspace{0.6em}
+  \textit{Pendiente de redacción en este borrador.}\par}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  columns=fullflexible,
+  frame=single,
+  language=bash
+}
+
+\begin{document}
+
+\input{portada}
+\input{preliminares}
+\input{cap1}
+\input{cap2}
+\input{cap3}
+\input{cap4}
+\input{referencias}
+\input{anexos}
+
+\end{document}
